@@ -16,7 +16,7 @@ export const defaultStyles = StyleSheet.create({
   },
   separator: {
     height: StyleSheet.hairlineWidth,
-    backgroundColor: Colors.lightGray,
+    backgroundColor: Colors.light.text,
     marginLeft: 50,
   },
 });

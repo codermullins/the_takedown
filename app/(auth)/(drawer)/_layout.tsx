@@ -11,7 +11,7 @@ const ScreenDrawer = () => {
     const CustomDrawer = (props: DrawerContentComponentProps) => {
         return (
         < >
-                <Image
+        <Image
           style={styles.proPic}
           source={require('../../../assets/images/logo.png')}
         />

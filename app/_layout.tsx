@@ -50,7 +50,6 @@ export default function RootLayout() {
 
 
     return (
-      <Provider store={store}>
     <Stack>
       <Stack.Screen name="index" options={{ headerShown: false}}/>
       <Stack.Screen name="(auth)/(drawer)" options={{ headerShown: false}}/>
@@ -69,7 +68,7 @@ export default function RootLayout() {
           hideWhenScrolling: false
         }
        }}/>
-    </Stack></Provider>
+    </Stack>
   );
 
 }

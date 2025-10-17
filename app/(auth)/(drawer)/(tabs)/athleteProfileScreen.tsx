@@ -1,13 +1,11 @@
 import { Image, StyleSheet, Text, View } from 'react-native';
 
 import React from 'react';
-import state from '../../../store/store'
 import { useLocalSearchParams } from 'expo-router';
 
 export const AthleteProfileScreen = () => {
   const item = useLocalSearchParams()
 
-  const schoolState = state.getState()
   return (
     
     <View style={styles.root}>
@@ -16,8 +14,8 @@ export const AthleteProfileScreen = () => {
           style={styles.proPic}
           source={require('../../../../assets/images/logo.png')}
           resizeMode='cover'/>
-      <Text style={styles.athName}>{item.name}</Text>
-      <Text>{schoolState.name}</Text>
+      <Text style={styles.athName}>{item.fName} {item.lName}</Text>
+      <Text>School</Text>
       <Text>
       <Text style={{fontWeight: 'bold'}}>Weight Class: </Text>{item.weightClass}</Text>
       <Text><Text style={{fontWeight: 'bold'}}>Grade: </Text>{item.grade}</Text>

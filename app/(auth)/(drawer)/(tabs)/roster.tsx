@@ -16,12 +16,13 @@ import { router } from 'expo-router';
 import { useNavigation } from '@react-navigation/native';
 
 interface ItemProps {
-  name: string;
+  fName: string;
+  lName: string;
   weightClass: number
   grade: string;
 }
 
-const Item: FC<ItemProps> = ({ name, weightClass, grade }) => (
+const Item: FC<ItemProps> = ({ fName, lName, weightClass, grade }) => (
   
   <View style={styles.item}>
     <View style={{position: 'absolute'}}>
@@ -29,7 +30,7 @@ const Item: FC<ItemProps> = ({ name, weightClass, grade }) => (
           style={styles.proPic}
           source={require('../../../../assets/images/logo.png')}
           resizeMode='cover'/></View>
-    <Text style={styles.name}>{name}</Text>
+    <Text style={styles.name}>{lName}, {fName}</Text>
     <Text style={styles.weightClass}>{weightClass}</Text>
     <View>
       <Text style={styles.grade}>{grade}</Text>
@@ -52,7 +53,7 @@ const RosterScreen: FC = () => {
     setSearchText(text)
 
     const filtered: any[] = rosterList.filter(item => 
-      item.name.toLowerCase().includes(text.toLowerCase())
+      item.lName.toLowerCase().includes(text.toLowerCase())
     )
 
     setFilteredData(filtered)
@@ -74,11 +75,12 @@ const RosterScreen: FC = () => {
         renderItem={({ item }) => (
           <TouchableOpacity
             onPress={() => {
-              const {id, name} = item
+              const {id, lName} = item
               router.push({ pathname: `/athleteProfileScreen`, params: {...item}})
             }}>
             <Item
-              name={item.name}
+              lName={item.lName}
+              fName={item.fName}
               weightClass={item.weightClass}
               grade={item.grade}
             />
