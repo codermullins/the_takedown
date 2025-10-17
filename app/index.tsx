@@ -1,51 +1,57 @@
-import { Button, Image, KeyboardAvoidingView, StyleSheet, Text, TextInput, View, useWindowDimensions } from "react-native";
-import { useEffect, useState } from "react"
+import {
+  Button,
+  Image,
+  KeyboardAvoidingView,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+  useWindowDimensions,
+} from "react-native";
+import { useEffect, useState } from "react";
 
-import {FirebaseError} from 'firebase/app'
 import { Link } from "expo-router";
-import auth from '@react-native-firebase/auth'
-import axios from 'axios'
+import auth from "@react-native-firebase/auth";
+
+// import axios from 'axios'
 
 // const MongoUrl = 'http://192.168.1.68:4000/schools/getSchool'
 
 export default function Index() {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [loading, setLoading] = useState(false)
-  const {height} = useWindowDimensions()
-  const [open, setOpen] = useState(false)
-  const [value, setValue] = useState(null)
-  const [schoolName, setSchoolName] = useState("")
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const { height } = useWindowDimensions();
+  const [open, setOpen] = useState(false);
+  const [value, setValue] = useState(null);
+  const [schoolName, setSchoolName] = useState("");
 
   const signUp = async () => {
-    setLoading(true)
+    setLoading(true);
     try {
-      await auth().createUserWithEmailAndPassword(email, password)
+      await auth().createUserWithEmailAndPassword(email, password);
       //Add the rest of the fields to Mongo
-      alert('Check your emails!')
-    }
-    catch (e: any) {
-      const err = e as FirebaseError
-      alert('Registration failed: ' + err.message)
+      alert("Check your emails!");
+    } catch (e: any) {
+      const err = e.message;
+      alert("Registration failed: " + err.message);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-    
-  }
+  };
 
   const signIn = async () => {
-    setLoading(true)
+    setLoading(true);
     try {
       await auth().signInWithEmailAndPassword(email, password);
       //route function
-    }
-    catch (e: any) {
-      const err = e as FirebaseError
-      alert('Sign in failed: ' + err.message)
+    } catch (e: any) {
+      const err = e.message;
+      alert("Sign in failed: " + err.message);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
 
   // useEffect(() => {
   //   const getSchool = async () => {
@@ -60,27 +66,36 @@ export default function Index() {
   // }, [])
 
   return (
-    <View
-      style={styles.container}
-    >
-      <Image source={require('../assets/images/logo.png')} style={[styles.logo, {height: height * 0.3}]} />
+    <View style={styles.container}>
+      <Image
+        source={require("../assets/images/logo.png")}
+        style={[styles.logo, { height: height * 0.3 }]}
+      />
       <Text style={styles.logoText}>The TakeDown</Text>
-      
+
       <KeyboardAvoidingView behavior="padding">
         <Text>Email</Text>
-        <TextInput style={styles.input}
-        value={email}
-        onChangeText={setEmail}
-        autoCapitalize="none"
-        keyboardType="email-address"/>
+        <TextInput
+          style={styles.input}
+          value={email}
+          onChangeText={setEmail}
+          autoCapitalize="none"
+          keyboardType="email-address"
+        />
         <Text>Password</Text>
-        <TextInput style={styles.input}
-        value={password}
-        onChangeText={setPassword}
-        secureTextEntry/>
+        <TextInput
+          style={styles.input}
+          value={password}
+          onChangeText={setPassword}
+          secureTextEntry
+        />
         <Button onPress={signIn} title="Sign In" />
-        <Text>Create and Account <Link style={styles.link} href="/register">Here</Link></Text>
-        
+        <Text>
+          Create and Account{" "}
+          <Link style={styles.link} href="/register">
+            Here
+          </Link>
+        </Text>
       </KeyboardAvoidingView>
     </View>
   );
@@ -88,10 +103,9 @@ export default function Index() {
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: 'center',
+    alignItems: "center",
     marginHorizontal: 20,
     flex: 1,
-    
   },
   input: {
     marginVertical: 4,
@@ -99,28 +113,28 @@ const styles = StyleSheet.create({
     width: 300,
     borderWidth: 1,
     borderRadius: 4,
-    padding: 10
+    padding: 10,
   },
   logo: {
     marginTop: 50,
     height: 150,
     maxWidth: 150,
-    width: '30%',
-    resizeMode: 'contain'
+    width: "30%",
+    resizeMode: "contain",
   },
   logoText: {
     marginTop: -70,
     fontSize: 30,
-    textShadowColor: 'white',
+    textShadowColor: "white",
     textShadowRadius: 10,
-    fontWeight: 'bold',
-    color: 'black',
-    marginBottom: 30
+    fontWeight: "bold",
+    color: "black",
+    marginBottom: 30,
   },
   link: {
-    color: 'blue'
+    color: "blue",
   },
   btn: {
-    borderRadius: 10
-  }
-})
+    borderRadius: 10,
+  },
+});
