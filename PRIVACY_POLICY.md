@@ -1,8 +1,8 @@
-# MatCheck Privacy Policy
+# SportTalk Privacy Policy
 
 Effective date: 2026-06-06
 
-MatCheck ("we", "our", "us") respects your privacy. This Privacy Policy explains what information we collect, how we use it, and your choices when using the MatCheck mobile application.
+SportTalk ("we", "our", "us") respects your privacy. This Privacy Policy explains what information we collect, how we use it, and your choices when using the SportTalk mobile application.
 
 ## Information We Collect
 
@@ -33,7 +33,7 @@ We use reasonable technical and organizational safeguards to protect your inform
 
 ## Children's Privacy
 
-MatCheck is not directed to children under 13 (or the minimum age required by local law). If you believe a child has provided personal data, contact us and we will take appropriate action.
+SportTalk is not directed to children under 13 (or the minimum age required by local law). If you believe a child has provided personal data, contact us and we will take appropriate action.
 
 ## Your Choices
 
@@ -43,7 +43,7 @@ You may request access, correction, or deletion of your data where applicable by
 
 You can request account deletion using the instructions at:
 
-- [MatCheck Account Deletion](ACCOUNT_DELETION.md)
+- [SportTalk Account Deletion](ACCOUNT_DELETION.md)
 
 ## Third-Party Services
 
@@ -55,4 +55,4 @@ We may update this policy from time to time. Updates will be posted at this URL 
 
 ## Contact
 
-For privacy questions, contact: privacy@matcheck.app
+For privacy questions, contact: privacy@SportTalk.app
